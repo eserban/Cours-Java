@@ -16,19 +16,14 @@ public class StudentList extends LinkedList{
         super(student, "\n");
     }
 
+    StudentList(Object o) {
+        super(o, "\n");
+    }
 
-//    public static StudentList from(File file) throws FileNotFoundException {
-//        Scanner scanner = new Scanner(file);
-//        String name= scanner.nextLine();
-//        StudentList sl = new StudentList(new Student(name));
-//        while (scanner.hasNextLine()) {
-//            name = scanner.nextLine();
-//            sl.append(new Student(name));
-//        }
-//
-//        scanner.close();
-//        return sl;
-//    }
+    @Override
+    protected LinkedList create(Object o) {
+        return new StudentList(o);
+    }
 
     void load(File file) throws FileNotFoundException {
         Scanner  scanner = new Scanner(file);

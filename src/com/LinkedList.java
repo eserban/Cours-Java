@@ -1,10 +1,10 @@
 package com;
 
-public class LinkedList {
+public abstract class LinkedList {
 
     private LinkedList next;
     private Object content;
-    private String separator;
+    protected String separator;
 
     LinkedList(String separator){
         this(null, separator);
@@ -16,6 +16,8 @@ public class LinkedList {
         this.separator = separator;
     }
 
+    protected abstract LinkedList create(Object o);
+
     void append(Object o) {
         LinkedList current = this;
         if (this.content == null) {
@@ -24,7 +26,7 @@ public class LinkedList {
             while (current.next != null) {
                 current = current.next;
             }
-            current.next = new LinkedList(o, separator);
+            current.next = current.create(o);
         }
     }
 

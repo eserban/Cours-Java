@@ -11,4 +11,13 @@ public class NoteList extends LinkedList {
     NoteList(Float note) {
         super(note, " ");
     }
+
+    NoteList(Object o) {
+        super(o, " ");
+    }
+
+    @Override
+    protected LinkedList create(Object o) {
+        return new NoteList(o);
+    }
 }
