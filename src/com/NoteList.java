@@ -1,8 +1,6 @@
 package com;
 
-public class NoteList extends LinkedList {
-    private NoteList next;
-    private Float note;
+public class NoteList extends LinkedList<Float> {
 
     NoteList() {
         super(" ");
@@ -12,12 +10,8 @@ public class NoteList extends LinkedList {
         super(note, " ");
     }
 
-    NoteList(Object o) {
-        super(o, " ");
-    }
-
     @Override
-    protected LinkedList create(Object o) {
-        return new NoteList(o);
+    protected LinkedList<Float> create(Float note) {
+        return new NoteList(note);
     }
 }

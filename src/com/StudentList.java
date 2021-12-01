@@ -4,9 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class StudentList extends LinkedList{
-    private StudentList next;
-    private Student student;
+public class StudentList extends LinkedList<Student>{
 
     StudentList(){
         super("\n");
@@ -16,13 +14,9 @@ public class StudentList extends LinkedList{
         super(student, "\n");
     }
 
-    StudentList(Object o) {
-        super(o, "\n");
-    }
-
     @Override
-    protected LinkedList create(Object o) {
-        return new StudentList(o);
+    protected LinkedList<Student> create(Student student) {
+        return new StudentList(student);
     }
 
     void load(File file) throws FileNotFoundException {
