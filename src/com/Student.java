@@ -1,12 +1,20 @@
 package com;
-
 public class Student {
-    private String name;
+    private String shortName, fullName;
     private NoteList notes;
 
-    public Student(String name) {
-        this.name = name;
+    public Student(String fullName) {
+        this.fullName = fullName;
+        shortName = fullName.split(" ")[1];
         notes = new NoteList();
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public String getShortName() {
+        return shortName;
     }
 
     public NoteList getNotes() {
@@ -15,6 +23,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return String.format("%s %s", name, notes);
+        return String.format("%s %s", fullName, notes);
     }
 }
+

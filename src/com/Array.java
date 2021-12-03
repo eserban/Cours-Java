@@ -1,12 +1,10 @@
-package com;
-
 import java.util.Arrays;
 
 public class Array {
     private float[] values; //variable membre
     private float max;
 
-    public Array(int size){
+    public Array(int size) {
         values = new float[size];
     }
 
@@ -34,13 +32,12 @@ public class Array {
     }
 
     public float badMax(float first, float... values) {
-        /*float max = first;
+        float max = first;
         for (float x : values) {
             if (x > max)
                 max = x;
         }
-        return max;*/
-        return Application.max(first, values);
+        return max;
     }
 
     public String toString() {
