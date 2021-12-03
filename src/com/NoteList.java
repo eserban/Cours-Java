@@ -1,17 +1,8 @@
 package com;
 
-public class NoteList extends LinkedList<Float> {
+public class NoteList extends PrintableArrayList<Float> {
 
     NoteList() {
         super(" ");
-    }
-
-    NoteList(Float note) {
-        super(note, " ");
-    }
-
-    @Override
-    protected LinkedList<Float> create(Float note) {
-        return new NoteList(note);
     }
 }

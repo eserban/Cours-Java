@@ -6,6 +6,10 @@ import java.util.Arrays;
 
 public class Application {
     public static void main(String[] args) {
+
+        PrintableArrayList<Double> pal = new PrintableArrayList<>(" ");
+
+
         StudentList list = new StudentList();
         File file = new File("students.txt");
         try {
