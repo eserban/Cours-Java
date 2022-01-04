@@ -27,4 +27,3 @@ public class StudentList extends PrintableArrayList<Student> {
         scanner.close();
     }
 }
-

@@ -1,4 +1,5 @@
 package com;
+
 public class Student {
     private String shortName, fullName;
     private NoteList notes;
@@ -26,4 +27,3 @@ public class Student {
         return String.format("%s %s", fullName, notes);
     }
 }
-

@@ -1,4 +1,5 @@
 package com;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
@@ -17,7 +18,7 @@ public class StudentMap extends HashMap<String, Student> {
             put(student.getShortName(), student);
             //Add notes
             for (int i = 1; i < fields.length; i++) {
-                student.getNotes().add(Float.parseFloat(fields[i]));
+                student.getNotes().add(Float.valueOf(fields[i]));
             }
         }
         scanner.close();
@@ -30,11 +31,10 @@ public class StudentMap extends HashMap<String, Student> {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for(Student student : values()){
+        for (Student student : values()) {
             sb.append(student);
             sb.append("\n");
         }
         return sb.toString();
     }
 }
-

@@ -19,6 +19,7 @@ public class PrintableArrayList<T> extends ArrayList<T> {
                 sb.append(separator);
             }
         }
+
         return sb.toString();
     }
 }
