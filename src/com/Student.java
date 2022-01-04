@@ -6,7 +6,12 @@ public class Student {
 
     public Student(String fullName) {
         this.fullName = fullName;
-        shortName = fullName.split(" ")[1];
+        String[] fields = fullName.split(" ");
+        if (fields.length >= 2) {
+            shortName = fullName.split(" ")[1];
+        } else {
+            shortName = fullName;
+        }
         notes = new NoteList();
     }
 
@@ -24,6 +29,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return String.format("%s %s", fullName, notes);
+        return String.format("%s\t%s", fullName, notes);
     }
 }

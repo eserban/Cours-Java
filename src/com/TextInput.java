@@ -22,7 +22,7 @@ public class TextInput {
         String command;
 
         do {
-            System.out.println(prompt);
+            System.out.print(prompt + ">");
             command = scanner.nextLine();
         } while (allowedValues.size() > 0 && !allowedValues.contains(command));
 
