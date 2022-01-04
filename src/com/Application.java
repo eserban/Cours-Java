@@ -4,10 +4,7 @@ import org.w3c.dom.Text;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 
 //Exercice 1 :
 //Coment pourrait-on éviter de répéter la saisie complète
@@ -40,6 +37,8 @@ public class Application {
         String name = command.ask();
         Student student;
 
+
+
         if (students.containsKey(name)) {
             student = students.get(name);
             System.out.println(String.format("Notes de %s : %s",
@@ -58,9 +57,10 @@ public class Application {
         TextInput input;
         confirm = new Confirmation(scanner, "Voulez-vous ajouter des notes? ");
         if (confirm.askOK()) {
-            input = new TextInput(scanner, "Saisir les notes séparées par des espaces >");
-            for (String s : input.ask().split(" ")) {
-                student.getNotes().add(Float.valueOf(s));
+            NoteListInput noteListInput = new NoteListInput(scanner, "Saisir les notes séparées par des espaces >");
+            Float[] notes  = noteListInput.ask();
+            for (Float f : notes) {
+                student.getNotes().add(f);
             }
         }
     }
