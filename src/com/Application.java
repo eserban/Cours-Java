@@ -1,5 +1,7 @@
 package com;
 
+import org.w3c.dom.Text;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -52,9 +54,10 @@ public class Application {
     }
 
     private static void askToAddNotes(Scanner scanner, Student student) {
+        Confirmation confirm;
         TextInput input;
-        input = new Confirmation(scanner, "Voulez-vous ajouter des notes (O/N)? ");
-        if (input.ask().equalsIgnoreCase("O")) {
+        confirm = new Confirmation(scanner, "Voulez-vous ajouter des notes? ");
+        if (confirm.askOK()) {
             input = new TextInput(scanner, "Saisir les notes séparées par des espaces >");
             for (String s : input.ask().split(" ")) {
                 student.getNotes().add(Float.valueOf(s));
@@ -63,8 +66,8 @@ public class Application {
     }
 
     private static void askToCreateNewStudent(StudentMap students, Scanner scanner, String name) {
-        TextInput input = new Confirmation(scanner, "Cet étudiant est inconnu. Voulez-vous le créer (O/N)? ");
-        if (input.ask().equalsIgnoreCase("O")) {
+        Confirmation confirm = new Confirmation(scanner, "Cet étudiant est inconnu. Voulez-vous le créer? ");
+        if (confirm.askOK()) {
             students.put(name, new Student(name));
         }
     }
