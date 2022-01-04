@@ -34,8 +34,8 @@ public class Application {
         }
 
         Scanner scanner = new Scanner(System.in);
-        System.out.print(">");
-        String name = scanner.nextLine();
+        TextInput command = new TextInput(scanner, ">");
+        String name = command.ask();
         Student student;
 
         if (students.containsKey(name)) {
@@ -53,7 +53,7 @@ public class Application {
 
     private static void askToAddNotes(Scanner scanner, Student student) {
         TextInput input;
-        input = new TextInput(scanner, "Voulez-vous ajouter des notes (O/N)? ", "O", "N", "o", "n");
+        input = new Confirmation(scanner, "Voulez-vous ajouter des notes (O/N)? ");
         if (input.ask().equalsIgnoreCase("O")) {
             input = new TextInput(scanner, "Saisir les notes séparées par des espaces >");
             for (String s : input.ask().split(" ")) {
@@ -63,7 +63,7 @@ public class Application {
     }
 
     private static void askToCreateNewStudent(StudentMap students, Scanner scanner, String name) {
-        TextInput input = new TextInput(scanner, "Cet étudiant est inconnu. Voulez-vous le créer (O/N)? ", "O", "N", "o", "n");
+        TextInput input = new Confirmation(scanner, "Cet étudiant est inconnu. Voulez-vous le créer (O/N)? ");
         if (input.ask().equalsIgnoreCase("O")) {
             students.put(name, new Student(name));
         }
