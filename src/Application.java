@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Application {
-    private static final String FILENAME = "students CC.txt";
+    private static final String FILENAME = "studentsCC.txt";
     private static final String SYMBOL_MOVE = "+";
     private File fileStudents;
     private final School school;
